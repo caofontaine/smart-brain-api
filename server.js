@@ -1,26 +1,36 @@
 const express = require('express');
+const bcrypt = require('bcrypt-nodejs');
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 const database = {
 	users: [
 		{
 			id: '123',
 			name: 'John',
-			email: 'john@gmail.com',
 			password: 'cookies',
+			email: 'john@gmail.com',
 			entries: 0,
 			joined: new Date()
 		},
 		{
 			id: '124',
 			name: 'Sally',
-			email: 'sally@gmail.com',
 			password: 'bananas',
+			email: 'sally@gmail.com',
 			entries: 0,
 			joined: new Date()
+		}
+	],
+	login: [
+		{
+			id: '987',
+			hash: '',
+			email: 'john@gmail.com'
 		}
 	]
 };
@@ -82,6 +92,8 @@ app.put('/image', (req, res) => {
 	}
 });
 
-app.listen(3000, () => {
-	console.log('app is running on port 3000');
+
+
+app.listen(3001, () => {
+	console.log('app is running on port 3001');
 });
