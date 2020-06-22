@@ -52,7 +52,7 @@ app.use(cors());
 };*/
 
 app.get('/', (req, res) => {
-	res.send(database.users);
+	res.send('it is working');
 });
 
 // All functions in their respective controller files.
